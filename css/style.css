@@ -124,5 +124,28 @@ tbody td button:nth-child(3){
     background-color: var(--color-error);
 }
 
+#edit-button {
+    display: none;
+}
 
+#alert-message{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
 
+}
+
+.alert{
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.alert-success{
+    background-color: var(--color-success);
+}
+.alert-error{
+    background-color: var(--color-error);
+}
