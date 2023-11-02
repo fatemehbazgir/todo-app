@@ -2,23 +2,27 @@ const taskInput = document.getElementById("task-input");
 const dateInput = document.getElementById("date-input");
 const addButton = document.getElementById("add-button");
 const alertMessage = document.getElementById("alert-message");
-const todos = [];
+const todos = JSON.parse(localStorage.getItem("todos")) || [];
 const generateId = () => {
   return Math.round(
     Math.random() * Math.random() * Math.pow(10, 15)
   ).toString();
 };
+const saveToLocalStorage = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
 const addHandler = () => {
   const task = taskInput.value;
   const date = dateInput.value;
   const todo = {
-    id:generateId(),
+    id: generateId(),
     task,
     date,
     completed: false,
   };
   if (task) {
     todos.push(todo);
+    saveToLocalStorage();
     taskInput.value = "";
     dateInput.value = "";
     showAlert("Todo added to successfuly", "success");
